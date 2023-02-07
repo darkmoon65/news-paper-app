@@ -1,0 +1,88 @@
+/* Start Header */
+
+.container {
+    width: 100vw;
+    background-color: rgb(239 68 68);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 15px;
+}
+
+.bar h1 {
+    width: 55vw;
+    color: white;
+    font-size: 20px;
+}
+
+.bar .user {
+    width: 45vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.bar .user button {
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    background-color: white;
+    font-size: 0.875rem;
+}
+
+/* End Header */
+
+@media (min-width: 800px) {
+
+    .bar {
+        width: 800px;
+        margin: 0 auto;
+        padding: 0;
+        display: block;
+        position: relative;
+    }
+
+    .bar .title {
+        padding: 20px;
+    }
+
+    .bar h1 {
+        width: unset;
+        text-align: center;
+        font-size: 3rem;
+        font-weight: lighter;
+    }
+
+    .bar .user {
+        display: unset;
+        width: unset;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 37px 0
+    }
+
+    .bar .user .break-up {
+        display: inline;
+        margin-left: 0.375rem;
+    }
+
+    .bar .user button {
+        border-radius: 0.40rem;
+        padding: 0.40rem 0.5rem;
+        background-color: rgb(185 28 28);
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        font-size: 0.875rem;
+        font-weight: lighter;
+        color: white;
+        text-transform: uppercase;
+    }
+
+    .bar .user button:hover {
+        text-decoration: underline;
+    }
+}
