@@ -1,17 +1,21 @@
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function Menu(){
+import './menu.css';
+
+
+const Menu = () => {
     return (
-        <div id="menu">
+        <nav>
             <ul>
-                <li> <Link to="/sports"> Sports</Link> </li>
-                <li> <Link to="/politics">politics</Link> </li>
-                <li> <Link to="/economics">economics</Link> </li>
-                <li> <Link to="/culture">culture</Link> </li>
-                <li> <Link to="/current">current</Link> </li>
+                <li><Link to="/">General</Link></li>
+                <li><Link to="/business">Technology</Link></li>
+                <li><Link to="/entertainment">Health</Link></li>
+                <li><Link to="/sports">Business</Link></li>
+                <li><Link to="/science">Science</Link></li>
+                <li><Link to="/health">Health</Link></li>
             </ul>
-        </div>
-    )
-}
+        </nav>
+    );
+};
 
 export default Menu;
