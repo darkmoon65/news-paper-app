@@ -34,6 +34,34 @@
     font-size: 0.875rem;
 }
 
+.suscription-button{
+    border: solid black 1px;
+    text-decoration:  none;
+    color: black;
+    padding: 10px; 
+    background-color: rgb(225, 162, 44);
+    border-radius: 15px;
+}
+
+.suscription-button:hover {
+    background-color: white;
+}
+
+.login-button{
+    border: solid black 1px;
+    text-decoration:  none;
+    color: white;
+    padding: 10px; 
+    margin-left: 10px;
+    background-color: black;
+    border-radius: 15px;
+}
+
+.login-button:hover {
+    background-color: white;
+    color: black;
+}
+
 /* End Header */
 
 @media (min-width: 800px) {

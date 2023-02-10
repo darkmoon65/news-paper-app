@@ -1,0 +1,16 @@
+
+.benefit-card-box {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    margin: 25px;
+    box-sizing: border-box;
+    width: 320px;
+    text-align: center;
+    background-color: rgb(209, 208, 208);
+    border-radius: 15px;
+}
+
+.benefit-card-item {
+    padding: 5px;
+}
