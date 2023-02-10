@@ -1,0 +1,139 @@
+.container-article {
+    margin: .5rem auto;
+    width: 100vw;
+    height: 200vh;
+    overflow: auto;
+}
+
+.grid {
+    display: grid;
+    height: 100%;
+    grid-template-areas:
+        "article01"
+        "article01"
+        "article02"
+        "article03"
+        "article04"
+        "article05"
+        "article06";
+}
+
+.grid article {
+    border-top: 1px solid rgb(209 213 219);
+    padding: 1rem;
+}
+
+article:nth-child(1) {
+    grid-area: article01;
+}
+
+article:nth-child(2) {
+    grid-area: article02;
+}
+
+article:nth-child(3) {
+    grid-area: article03;
+}
+
+article:nth-child(4) {
+    grid-area: article04;
+}
+
+article:nth-child(5) {
+    grid-area: article05;
+}
+
+article:nth-child(6) {
+    grid-area: article06;
+}
+
+.grid>article>div a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #333;
+    font-weight: lighter;
+}
+
+.grid>article img {
+    max-width: 100%;
+    height: auto;
+}
+
+article:nth-child(1)>div {
+    margin-top: -0.5rem;
+}
+
+article:nth-child(1)>div a {
+    font-size: 2.5rem;
+}
+
+article:nth-child(1)>div p {
+    font-size: 1.2rem;
+}
+
+article:nth-child(1)>div p>span {
+    font-size: 1rem;
+    color: rgb(251 191 36);
+}
+
+article:nth-child(2)>div,
+article:nth-child(3)>div,
+article:nth-child(4)>div {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+article:nth-child(1)>div,
+article:nth-child(5)>div,
+article:nth-child(6)>div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@media screen and (min-width: 800px) {
+
+    .container-article {
+        margin: 0 auto;
+        width: 800px;
+        height: 80vh;
+    }
+
+    .grid {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-areas:
+            "article01 article01 article02"
+            "article01 article01 article03"
+            "article04 article05 article06";
+    }
+
+    article:nth-child(n)>div {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    article:nth-child(1)>div {
+        padding-top: 0;
+    }
+
+    article:nth-child(1)>div,
+    article:nth-child(2)>div,
+    article:nth-child(3)>div {
+        justify-content: start;
+        margin: 0;
+        padding-top: 1rem;
+    }
+
+
+}
