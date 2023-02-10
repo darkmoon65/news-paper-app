@@ -1,5 +1,6 @@
 import Menu from '../menu/menu';
 import './header.css';
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
@@ -11,9 +12,8 @@ const Header = () => {
                         <h1>WORLD NEWS</h1>
                     </div>
                     <div className="user">
-                        <button>Suscribe</button>
-                        <div className='break-up'/>
-                        <button>Login</button>
+                        <Link className='suscription-button' to="/suscription">Suscribete</Link>
+                        <Link className='login-button' to="/login">Login</Link>
                     </div>
                 </div>
             </div>
