@@ -1,47 +1,59 @@
 import { useEffect, useState } from 'react';
-import { helpHttp } from '../api/helpHttp';
-import Loader from '../components/loader/loader';
-import Message from '../components/message/message';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import Article from '../components/article/article';
 
 const Categories = ({ cat }) => {
 
-    const [data, setData] = useState(null);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const endpoint = "http://127.0.0.1:8000/api-article/top-headlines/";
+    const [news, setNews] = useState([]),
+        [page, setPage] = useState(1);
 
     useEffect(() => {
-        
-        setLoading(true);
-        helpHttp().get(
-            cat
-                ? `${endpoint}article-by/?category=${cat}`
-                : endpoint
-        ).then(res => {
-            if (!res.err) {
-                setData(res);
-                setError(null);
-            } else {
-                setData(null);
-                setError(res);
-            }
-            setLoading(false);
-        });
 
+        setPage(1);
+        setNews([]);
     }, [cat]);
+
+
+    useEffect(() => {
+        fetchNews();
+    }, [news, page]);
+
+
+    const fetchNews = () => {
+
+        const api = cat
+            ? `http://127.0.0.1:8000/api-article/top-headlines/article-by/?category=${cat}&page=${page}`
+            : `http://127.0.0.1:8000/api-article/top-headlines/?page=${page}`;
+
+        fetch(api)
+            .then(res => res.json())
+            .then(data => {
+                setNews([...news, ...data.results]);
+                setPage(page + 1);
+            }).catch(error => {
+
+            });
+    };
 
     return (
         <main>
-            {loading && <Loader />}
-            {error && <Message error={error} />}
-            {
-                data ? data.results.map((article) => (
-                    <article>
-                        {console.log(article)}
-                    </article>
-                ))
-                    : ""
-            }
+            <div className='container-article' id='infiniteScroll'>
+                <InfiniteScroll
+                    dataLength={news.length}
+                    next={fetchNews}
+                    hasMore={true}
+                    loader={""}
+                    scrollableTarget="infiniteScroll"
+                >
+                    <div className='grid'>
+                        {news.map((article, index) => {
+                            return (
+                                <Article article={article} key={article.id} index={index}></Article>
+                            );
+                        })}
+                    </div>
+                </InfiniteScroll>
+            </div>
         </main>
     );
 };
