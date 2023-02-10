@@ -1,11 +1,10 @@
-
-import Card from "../components/card/card";
+import Categories from "./categories";
 
 function Home() {
-    return(
-        <section>
-            <Card/>
-        </section>
+    return (
+        <>
+            <Categories />
+        </>
     )
 }
 
