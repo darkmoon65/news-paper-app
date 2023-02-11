@@ -10,7 +10,6 @@ const Header = () => {
     const space = useRef();
 
     window.onscroll = () => {
-        console.log(window.scrollY);
         if(window.scrollY > 60) {
             bar.current.classList.add('fixed');
             space.current.classList.add('space');
