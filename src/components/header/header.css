@@ -40,6 +40,11 @@
     text-decoration: underline;
 }
 
+.title {
+    display: flex;
+    align-items: center;
+}
+
 /* End Header */
 
 @media (min-width: 800px) {
