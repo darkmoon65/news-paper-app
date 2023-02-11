@@ -62,6 +62,11 @@
     color: black;
 }
 
+.title {
+    display: flex;
+    align-items: center;
+}
+
 /* End Header */
 
 @media (min-width: 800px) {
