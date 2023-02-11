@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
-        <header>
+        <header style={{width: '100%'}}>
             <Menu />
             <div className="container">
                 <div className="bar">

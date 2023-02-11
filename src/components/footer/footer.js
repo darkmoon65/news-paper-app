@@ -3,9 +3,9 @@ import Menu from '../menu/menu';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer style={{width: '100%'}}>
         <Menu></Menu>
-        <p>© World News Inc. - 2023</p>
+        <p style={{paddingBottom: '15px'}}>© World News Inc. - 2023</p>
     </footer>
   );
 };

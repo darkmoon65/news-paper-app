@@ -3,7 +3,7 @@ import SuscriptionPrice from "../components/suscriptionPrice/suscriptionPrice";
 
 const Suscription = () => {
     return (
-        <main>
+        <main style={{width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto'}}>
            <SuscriptionPrice/>
            <Benefit/>
         </main>

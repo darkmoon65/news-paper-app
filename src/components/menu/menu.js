@@ -5,7 +5,7 @@ import './menu.css';
 
 const Menu = () => {
     return (
-        <nav>
+        <nav style={{padding: '10px 0'}}>
             <ul>
                 <li><Link to="/">General</Link></li>
                 <li><Link to="/business">Business</Link></li>

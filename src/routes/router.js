@@ -10,18 +10,20 @@ function Router() {
 
     return (
         <BrowserRouter>
-            <Header />
-            <Routes>
-                <Route path="/" element={< Home />} />
-                <Route path="business" element={<Categories cat={"business"}/>} />
-                <Route path="entertainment" element={<Categories cat={"entertainment"}/>} />
-                <Route path="sports" element={<Categories cat={"sports"}/>} />
-                <Route path="science" element={<Categories cat={"science"}/>} />
-                <Route path="technology" element={<Categories cat={"technology"}/>} />
-                <Route path="health" element={<Categories cat={"health"}/>} />
-                <Route path="suscription" element={<Suscription/>} />
-            </Routes>
-            <Footer />
+            <div style={{height: '100vh'}}>
+                <Header />
+                <Routes>
+                    <Route path="/" element={< Home />} />
+                    <Route path="business" element={<Categories cat={"business"}/>} />
+                    <Route path="entertainment" element={<Categories cat={"entertainment"}/>} />
+                    <Route path="sports" element={<Categories cat={"sports"}/>} />
+                    <Route path="science" element={<Categories cat={"science"}/>} />
+                    <Route path="technology" element={<Categories cat={"technology"}/>} />
+                    <Route path="health" element={<Categories cat={"health"}/>} />
+                    <Route path="suscription" element={<Suscription/>} />
+                </Routes>
+                <Footer />
+            </div>
         </BrowserRouter>
     )
 }

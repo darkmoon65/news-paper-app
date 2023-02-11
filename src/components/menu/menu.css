@@ -1,7 +1,6 @@
 /* start menu */
 
 nav ul {
-    overflow-x: scroll;
     list-style: none;
     padding: 0.375rem;
     display: flex;

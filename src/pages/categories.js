@@ -16,7 +16,7 @@ const Categories = ({ cat }) => {
 
     useEffect(() => {
         fetchNews();
-    }, [news, page]);
+    }, [page]);
 
 
     const fetchNews = () => {
@@ -29,14 +29,16 @@ const Categories = ({ cat }) => {
             .then(res => res.json())
             .then(data => {
                 setNews([...news, ...data.results]);
-                setPage(page + 1);
+                if(page < Math.ceil(data.count / 5)) {
+                    setPage(page + 1);
+                }
             }).catch(error => {
-
+                console.log(error);
             });
     };
 
     return (
-        <main>
+        <main style={{width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto'}}>
             <div className='container-article' id='infiniteScroll'>
                 <InfiniteScroll
                     dataLength={news.length}
