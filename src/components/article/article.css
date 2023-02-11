@@ -1,7 +1,6 @@
 .container-article {
     margin: .5rem auto;
     width: 100vw;
-    height: 200vh;
     overflow: auto;
 }
 
@@ -102,7 +101,6 @@ article:nth-child(6)>div {
     .container-article {
         margin: 0 auto;
         width: 800px;
-        height: 80vh;
     }
 
     .grid {
