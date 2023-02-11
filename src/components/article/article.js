@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import './article.css';
 
 const Article = ({ article, index }) => {
-    const { title, description, urlToImage, publishedAt } = article;
+    const { title, description, urlToImage, publishedAt, id } = article;
     return (
         <>
             <article>
                 <div>
                     <div>
-                        <Link to="/">{title}</Link>
+                        <Link to={'/detail/' + id}>{title}</Link>
                         {
                             index == 0
                                 ? <p>{description}<br/><span>⭐Exclusive content for premium</span></p>

@@ -1,24 +1,38 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import {useParams} from "react-router-dom";
 import './detail.css'
 
 const Detail = () => {
+    
+    const [news, setNews] = useState({})
+
+    let { id } = useParams();
+    useEffect(() => {
+        fetchNew();
+    },[]);
+
+    const fetchNew = () => {
+
+        const api = `http://127.0.0.1:8000/api-article/top-headlines/${id}`
+           
+        fetch(api)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setNews(data);
+            }).catch(error => {
+                console.log(error);
+            });
+    };
+
     return (
         <div className="content-detail">
             <div className="content-detail-items">
-                <h2>Las noches de infierno en la comuna .......</h2>
-                <p>Breve descripcion de la noticia</p>
-                <p>Aqui va la imagen </p>
-                <p>Lorem Ipsum is simply dummy
-                    text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy
-                    text ever since the 1500s, when an unknown printer took
-                    a galley of type and scrambled it to make a type specimen book.
-                    It has survived not only five centuries, but also the leap into electronic
-                    typesetting, remaining essentially unchanged. It was popularised
-                    in the 1960s with the release of Letraset sheets containing Lorem
-                    Ipsum passages, and more recently with desktop publishing software
-                    like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
+                <h2> { news.title }</h2>
+                <p>  { news.description}</p>
+                <img src={ news.urlToImage} className="content-detail-img"/>
+                <p> { news.content} </p>
 
                 <div>
                     <p>Unete a Papers News para seguir toda la actualidad </p>

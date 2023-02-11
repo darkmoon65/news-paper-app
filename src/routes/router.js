@@ -25,7 +25,7 @@ function Router() {
                 <Route path="suscription" element={<Suscription/>} />
                 <Route path="login" element={<Login/>} />
                 <Route path="register" element={<Register/>} />
-                <Route path="detail" element={<Detail/>} />
+                <Route path="detail/:id" element={<Detail />} />
             </Routes>
             <Footer />
         </BrowserRouter>
