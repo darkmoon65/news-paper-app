@@ -2,6 +2,7 @@
 .content-detail {
     display: grid;
     grid-template-columns: 1fr 0.5fr;
+    padding:15px;
 }
 
 .content-detail-items{
@@ -19,4 +20,8 @@
     padding-top: 5px;
     padding-bottom: 5px;
     margin: 10px;
+}
+
+.content-detail-img {
+    width: 80%;
 }
