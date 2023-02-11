@@ -1,0 +1,22 @@
+
+.content-detail {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+}
+
+.content-detail-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-detail-items div{
+    display: flex;
+}
+
+.content-detail p{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 10px;
+}

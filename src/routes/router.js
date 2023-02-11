@@ -5,25 +5,29 @@ import Footer from '../components/footer/footer';
 import Home from '../pages/home';
 import Categories from '../pages/categories';
 import Suscription from '../pages/suscription';
+import Login from '../pages/login';
+import Register from '../pages/register';
+import Detail from '../components/detail/detail';
 
 function Router() {
 
     return (
         <BrowserRouter>
-            <div style={{height: '100vh'}}>
-                <Header />
-                <Routes>
-                    <Route path="/" element={< Home />} />
-                    <Route path="business" element={<Categories cat={"business"}/>} />
-                    <Route path="entertainment" element={<Categories cat={"entertainment"}/>} />
-                    <Route path="sports" element={<Categories cat={"sports"}/>} />
-                    <Route path="science" element={<Categories cat={"science"}/>} />
-                    <Route path="technology" element={<Categories cat={"technology"}/>} />
-                    <Route path="health" element={<Categories cat={"health"}/>} />
-                    <Route path="suscription" element={<Suscription/>} />
-                </Routes>
-                <Footer />
-            </div>
+            <Header />
+            <Routes>
+                <Route path="/" element={< Home />} />
+                <Route path="business" element={<Categories cat={"business"}/>} />
+                <Route path="entertainment" element={<Categories cat={"entertainment"}/>} />
+                <Route path="sports" element={<Categories cat={"sports"}/>} />
+                <Route path="science" element={<Categories cat={"science"}/>} />
+                <Route path="technology" element={<Categories cat={"technology"}/>} />
+                <Route path="health" element={<Categories cat={"health"}/>} />
+                <Route path="suscription" element={<Suscription/>} />
+                <Route path="login" element={<Login/>} />
+                <Route path="register" element={<Register/>} />
+                <Route path="detail" element={<Detail/>} />
+            </Routes>
+            <Footer />
         </BrowserRouter>
     )
 }
