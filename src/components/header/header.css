@@ -45,6 +45,15 @@
     align-items: center;
 }
 
+.fixed {
+    position: fixed;
+    top: 0;
+}
+
+.space {
+    height: 100px;
+}
+
 /* End Header */
 
 @media (min-width: 800px) {

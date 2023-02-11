@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {useParams} from "react-router-dom";
 import './detail.css'
 
@@ -8,8 +8,11 @@ const Detail = () => {
     const [news, setNews] = useState({})
 
     let { id } = useParams();
+    const d = useRef();
+    
     useEffect(() => {
         fetchNew();
+    //eslint-disable-next-line
     },[]);
 
     const fetchNew = () => {
@@ -19,22 +22,25 @@ const Detail = () => {
         fetch(api)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setNews(data);
             }).catch(error => {
                 console.log(error);
             });
     };
 
-    return (
-        <div className="content-detail">
-            <div className="content-detail-items">
-                <h2> { news.title }</h2>
-                <p>  { news.description}</p>
-                <img src={ news.urlToImage} className="content-detail-img"/>
-                <p> { news.content} </p>
+    useEffect(() => {
+        console.log(d);
+        d.current.innerHTML = news.content;
+    }, [d, news.content]);
 
-                <div>
+    return (
+        <div className="content-detail" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: '800px', margin: 'auto'}}>
+            <div className="content-detail-items">
+                <h2> {news.title}</h2>
+                <p>  {news.description}</p>
+                <img src={news.urlToImage} className="content-detail-img" alt={news.title}/>
+                <div ref={d} className='content-container' style={{display: 'flex', flexDirection: 'column'}}></div>
+                <div style={{display: 'flex', alignItems: 'center'}}>
                     <p>Unete a Papers News para seguir toda la actualidad </p>
                     <Link to="/suscription" className="enter-button">Suscribete</Link>
                 </div>
