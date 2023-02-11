@@ -8,7 +8,6 @@ const Categories = ({ cat }) => {
         [page, setPage] = useState(1);
 
     useEffect(() => {
-
         setPage(1);
         setNews([]);
     }, [cat]);
@@ -16,20 +15,21 @@ const Categories = ({ cat }) => {
 
     useEffect(() => {
         fetchNews();
-    }, [page]);
+        //eslint-disable-next-line
+    }, [cat, page]);
 
 
     const fetchNews = () => {
 
         const api = cat
-            ? `http://127.0.0.1:8000/api-article/top-headlines/article-by/?category=${cat}&page=${page}`
+            ? `http://127.0.0.1:8000/api-article/top-headlines/article-by/?page=${page}&category=${cat}`
             : `http://127.0.0.1:8000/api-article/top-headlines/?page=${page}`;
 
         fetch(api)
             .then(res => res.json())
             .then(data => {
-                setNews([...news, ...data.results]);
-                if(page < Math.ceil(data.count / 5)) {
+                data?.results && setNews([...news, ...data.results]);
+                if(page < Math.ceil(data.count / 6)) {
                     setPage(page + 1);
                 }
             }).catch(error => {
@@ -38,7 +38,7 @@ const Categories = ({ cat }) => {
     };
 
     return (
-        <main style={{width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto'}}>
+        <main style={{width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto', minHeight: '73.1vh'}}>
             <div className='container-article' id='infiniteScroll'>
                 <InfiniteScroll
                     dataLength={news.length}
@@ -48,11 +48,11 @@ const Categories = ({ cat }) => {
                     scrollableTarget="infiniteScroll"
                 >
                     <div className='grid'>
-                        {news.map((article, index) => {
+                        {news.length !== 0 ? news.map((article, index) => {
                             return (
                                 <Article article={article} key={article.id} index={index}></Article>
                             );
-                        })}
+                        }) : <p style={{textAlign: 'center', fontSize: '20px', fontWeight: 'bold', gridColumn: 'span 3', margin: '20px 0'}}>No existen noticias para la categoría seleccionada</p>}
                     </div>
                 </InfiniteScroll>
             </div>

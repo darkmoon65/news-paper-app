@@ -5,7 +5,7 @@ import './menu.css';
 
 const Menu = () => {
     return (
-        <nav style={{padding: '10px 0'}}>
+        <nav style={{padding: '10px 0', width: '100%', display: 'flex', flexWrap: 'wrap'}}>
             <ul>
                 <li><Link to="/">General</Link></li>
                 <li><Link to="/business">Business</Link></li>

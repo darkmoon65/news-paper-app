@@ -10,8 +10,8 @@ const Article = ({ article, index }) => {
                     <div>
                         <Link to={'/detail/' + id}>{title}</Link>
                         {
-                            index == 0
-                                ? <p>{description}<br/><span>⭐Exclusive content for premium</span></p>
+                            index === 0
+                                ? <p>{description}<br/><span style={{fontSize: '14px', color: 'black', fontWeight: 'bold'}}>Publicado el día {publishedAt}</span><br/><span>⭐Exclusive content for premium</span></p>
                                 : ""
                         }
                     </div>

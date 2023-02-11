@@ -5,6 +5,8 @@ nav ul {
     padding: 0.375rem;
     display: flex;
     justify-content: center;
+    margin: auto;
+    flex-wrap: wrap;
 }
 
 nav ul li {

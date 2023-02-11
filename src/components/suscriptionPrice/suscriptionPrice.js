@@ -4,7 +4,7 @@ import './suscriptionPrice.css'
 const SuscriptionPrice = () => {
     return (
         <div className="box">
-            <h1>Invertir en conocimiento es la mejor decision</h1>
+            <h1 style={{textAlign: 'center'}}>Invertir en conocimiento es la mejor decision</h1>
             <h2>Elige tu plan digital ideal</h2>
 
             <div className="box-prices">
